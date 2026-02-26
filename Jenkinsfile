@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'ubuntu-agent' }
+    agent any
     stages {
         stage('Vérification du nœud') {
             steps {
@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo "🔨 Build en cours sur l'agent distant..."
+                echo "🔨 Build en cours..."
                 sh 'echo "Compilation simulée avec succès"'
             }
         }
@@ -25,17 +25,17 @@ pipeline {
         }
         stage('Déploiement') {
             steps {
-                echo "🚀 Déploiement depuis l'agent distant..."
+                echo "🚀 Déploiement..."
                 sh 'echo "Application déployée avec succès"'
             }
         }
     }
     post {
         success {
-            echo "✅ Pipeline terminé avec succès sur ubuntu-agent !"
+            echo "✅ Pipeline terminé avec succès !"
         }
         failure {
             echo "❌ Échec du pipeline !"
         }
     }
-} voila mon jenkinsfilee
+}
